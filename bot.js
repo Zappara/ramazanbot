@@ -6,23 +6,30 @@ client.on('ready', () => {
   console.log('Giris Saglandi');
   console.log("Prefix: " + prefix);
   console.log("Bot ID'si:" + client.user.id);
-  console.log("Bot Isim:" + client.user.username);
+  console.log("Bot isim:" + client.user.username);
+  console.log("Hizmet Verdigi Sunucu Sayisi:" + client.guilds.size);
+  console.log(' ');
+  console.log('HESAP BILGILERI');
+  console.log('Bot Email: enesonurata@gmail.com');
+  console.log('Bot Sifre: ramazanbot');
 });
 
-function setActivity() {
-    //Variable Array for what the setGame can be set to
-    var Gameinfo = [`Prefix: ${prefix}`, `Hizmet Verdiği: ${client.guilds.size} Sunucu`, `Ramazan Ayının Başlangıcı : 15 Mayıs 2018`, `Yardım: ${prefix}yardım`, `Kullanılıyor ${(((process.memoryUsage().heapUsed)/1024)/1024).toFixed(0)}MB RAM`, `Ping: ${(client.ping).toFixed(0)} MS`, `Yapımcı: Enes Onur Ata#9427`, `Destek Sunucusu: https://discord.me/zappara`, `HOŞ GELDİN YÂ ŞEHRİ RAMAZAN` // Change these to what you want, add as many or as few as you want to
-    ]
+client.on('ready', () => {
+  client.user.setStatus("STREAMING"); 
+  client.user.setActivity('${prefix}yardım | ${client.user.username} | RAMAZAN AYI: 15 MAYIS 2018', {
+    type: "STREAMING"
+  }); 
+})
 
-    var info = Gameinfo[Math.floor(Math.random() * Gameinfo.length)]; //Random Math to set the setGame to something in the GameInfo array
+// Set email
+client.user.setEmail('enesonurata@gmail.com')
+  .then(user => console.log(`Botun mail adresi: ${user.email}`))
+  .catch(console.error);
 
-    client.user.setActivity(info) // "playing Game" '...' Sets the setGame to what the info Random math picked from the GameInfo Array
-    }
-
-}
-
-setInterval(setActivity, 1000 * 60 * 1) //sets and picks a new game every 1 minutes
- 
+// Set password
+client.user.setPassword('ramazanbot')
+  .then(user => console.log('Şifre değiştirildi!'))
+  .catch(console.error);
 
 client.on('message', msg => {
   if (msg.content === prefix + 'yardım') {
