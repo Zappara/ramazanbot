@@ -1,3 +1,5 @@
+client.login(process.env.BOT_TOKEN);
+
 const Discord = require("discord.js");
 const ytdl = require('ytdl-core');
 const client = new Discord.Client();
@@ -244,5 +246,3 @@ ${prefix}sys - Gets system information${rb}`)
    	msg.reply('sana da güle güle');
   }
 });
-
-client.login(process.env.BOT_TOKEN);
