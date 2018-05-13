@@ -16,16 +16,6 @@ client.on('ready', () => {
   }); 
 })
 
-// Set email
-client.user.setEmail('enesonurata@gmail.com')
-  .then(user => console.log(`Botun mail adresi: ${user.email}`))
-  .catch(console.error);
-
-// Set password
-client.user.setPassword('ramazanbot')
-  .then(user => console.log('Şifre değiştirildi!'))
-  .catch(console.error);
-
 client.on('message', msg => {
   if (msg.content === prefix + 'yardım') {
   	if (msg.author.bot) return;
