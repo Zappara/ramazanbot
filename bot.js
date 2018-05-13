@@ -5,7 +5,7 @@ const prefix = '!';
 
 const botisim = 'client.user.username';
 const oynuyormesaj = 'RAMAZAN AYI: 15 MAYIS 2018';
-const ``` = '```';
+const üçtırnak = '```';
 
 client.on('ready', () => {
   console.log('Giris Saglandi');
@@ -62,7 +62,7 @@ client.on('message', message => {
 
 if (message.content.startsWith(prefix + 'yardım')) {
     bot.sendMessage(message, "Özel Mesajlarını Kontrol Et **" + message.sender.name + "**")
-    bot.sendMessage(message.sender.id, `${```}
+    bot.sendMessage(message.sender.id, `${üçtırnak}
 ${prefix}yardım - Tüm komutları ve ne işe yaradıklarını gösterir.
 ${prefix}ping - Botun gecikmesini gösterir.
 ${prefix}servers Shows amount of servers.
@@ -91,7 +91,7 @@ ${prefix}note - Takes a note
 ${prefix}mynotes - Shows notes you have taken
 ${prefix}math <maths> - evaluates math equations
 ${prefix}uptime - Shows bot uptime
-${prefix}sys - Gets system information${```}`)
+${prefix}sys - Gets system information${üçtırnak}`)
   }
 
   if (msg.content === 'acıktım') {
