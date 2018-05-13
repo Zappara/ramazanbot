@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const ytdl = require('ytdl-core');
 const client = new Discord.Client();
 const prefix = '!';
 
@@ -11,10 +12,48 @@ client.on('ready', () => {
 
 client.on('ready', () => {
   client.user.setStatus("STREAMING"); 
-  client.user.setActivity('${prefix}yardım | ${client.user.username} | RAMAZAN AYI: 15 MAYIS 2018', {
+  client.user.setActivity('(prefix)yardım | (client.user.username) | RAMAZAN AYI: 15 MAYIS 2018', {
     type: "STREAMING"
   }); 
 })
+
+client.on('message', message => {
+    if (message.content === prefix + 'ezan') {
+        if (message.channel.type !== 'text') return;
+
+        const { voiceChannel } = message.member;
+
+        if (!voiceChannel) {
+            return message.reply('Sesli bir kanala gir de öyle okuyum Ezanı!');
+        }
+
+        voiceChannel.join().then(connection => {
+            const stream = ytdl('https://www.youtube.com/watch?v=lQg7zI3nay4', { filter: 'audioonly' });
+            const dispatcher = connection.playStream(stream);
+
+            dispatcher.on('bitir', () => voiceChannel.leave());
+        });
+    }
+});
+client.on('message', message => {
+    if (message.content === prefix + 'sela') {
+        if (message.channel.type !== 'text') return;
+
+        const { voiceChannel } = message.member;
+
+        if (!voiceChannel) {
+            return message.reply('Sesli bir kanala gir de öyle okuyum Selayı!');
+        }
+
+        voiceChannel.join().then(connection => {
+            const stream = ytdl('https://www.youtube.com/watch?v=lQg7zI3nay4', { filter: 'audioonly' });
+            const dispatcher = connection.playStream(stream);
+
+            dispatcher.on('bitir', () => voiceChannel.leave());
+        });
+    }
+});
+
 
 client.on('message', msg => {
   if (msg.content === prefix + 'yardım') {
