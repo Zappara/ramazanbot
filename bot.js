@@ -1,10 +1,30 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const prefix = '&';
+const prefix = '!';
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.username}!`);
+  console.log('Giris Saglandi');
+  console.log("Prefix: " + prefix);
+  console.log("Bot ID'si:" + client.user.id);
+  console.log("Bot Isim:" + client.user.username);
 });
+
+function setActivity() {
+    //Variable Array for what the setGame can be set to
+    var Gameinfo = [`Prefix: ${prefix}`, `Hizmet Verdiği: ${client.guilds.size} Sunucu`, `Ramazan Ayının Başlangıcı : 15 Mayıs 2018`, `Yardım: ${prefix}yardım`, `Kullanılıyor ${(((process.memoryUsage().heapUsed)/1024)/1024).toFixed(0)}MB RAM`, `Ping: ${(client.ping).toFixed(0)} MS`, `Yapımcı: Enes Onur Ata#9427`, `Destek Sunucusu: https://discord.me/zappara`, `HOŞ GELDİN YÂ ŞEHRİ RAMAZAN` // Change these to what you want, add as many or as few as you want to
+    ]
+
+    var info = Gameinfo[Math.floor(Math.random() * Gameinfo.length)]; //Random Math to set the setGame to something in the GameInfo array
+
+    client.user.setActivity(info) // "playing Game" '...' Sets the setGame to what the info Random math picked from the GameInfo Array
+    if (debugMode === "1") {
+        console.log(`[ OYNUYOR ] Zappara şu anda ( ${info} ) oynuyor`) //Logs to console what the setGame was set as.
+    }
+
+}
+
+setInterval(setActivity, 1000 * 60 * 1) //sets and picks a new game every 1 minutes
+ 
 
 client.on('message', msg => {
   if (msg.content === prefix + 'yardım') {
@@ -93,7 +113,7 @@ client.on('message', msg => {
   }
 
   if (msg.content === 'püf') {
-   	msg.reply('Git, Barış MANÇO nun -Lambaya Püf De- dinle!');
+   	msg.reply('Püf deme of de!');
   }
 
   if (msg.content === 'iftara ne kadar var') {
@@ -126,13 +146,13 @@ client.on('message', msg => {
 
   if (msg.content === 'iftara ne kadar kaldı') {
   	if (Math.floor((Math.random() * 4) + 1) === 1) {
-   		msg.reply('Çok değil! www.com');
+   		msg.reply('Çok değil!');
    	}else if (Math.floor((Math.random() * 4) + 1) === 2) {
-   		msg.reply('Görende 3 gün aç kaldı sanacak! www.com');
+   		msg.reply('Görende 3 gün aç kaldı sanacak!');
    	}else if (Math.floor((Math.random() * 4) + 1) === 3) {
-   		msg.reply('Görende 3 gün susuz kaldı sanacak! www.com');
+   		msg.reply('Görende 3 gün susuz kaldı sanacak!');
    	}else if (Math.floor((Math.random() * 4) + 1) === 4) {
-   		msg.reply('Biraz Google la! ;)');
+   		msg.reply('Sabret biraz! ;)');
    	}
   }
 
@@ -173,4 +193,4 @@ client.on('message', msg => {
   }
 });
 
-client.login('TOKEN');
+client.login(process.env.BOT_TOKEN);
