@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const fs = require('fs');
 const ytdl = require('ytdl-core');
 const client = new Discord.Client();
 const prefix = '!';
@@ -30,6 +31,8 @@ client.on('message', message => {
         voiceChannel.join().then(connection => {
             const stream = ytdl('https://www.youtube.com/watch?v=lQg7zI3nay4', { filter: 'audioonly' });
             const dispatcher = connection.playStream(stream);
+            ytdl(url, { filter: (format) => format.container === 'mp4' })
+              .pipe(fs.createWriteStream('video.mp4'));
 
             dispatcher.on('bitir', () => voiceChannel.leave());
         });
