@@ -7,7 +7,6 @@ client.on('ready', () => {
   console.log("Prefix: " + prefix);
   console.log("Bot ID'si:" + client.user.id);
   console.log("Bot isim:" + client.user.username);
-  console.log("Hizmet Verdigi Sunucu Sayisi:" + client.guilds.size);
 });
 
 client.on('ready', () => {
