@@ -5,9 +5,6 @@ const ytdl = require('ytdl-core');
 const client = new Discord.Client();
 const prefix = '!';
 
-const oynuyormesaj = 'RAMAZAN AYI: 15 MAYIS 2018';
-const rb = '```';
-
 client.on('ready', () => {
   console.log('Giris Saglandi');
   console.log("Prefix: " + prefix);
@@ -245,3 +242,4 @@ ${prefix}sys - Gets system information${rb}`)
    	msg.reply('sana da güle güle');
   }
 });
+
