@@ -17,7 +17,6 @@ function setActivity() {
     var info = Gameinfo[Math.floor(Math.random() * Gameinfo.length)]; //Random Math to set the setGame to something in the GameInfo array
 
     client.user.setActivity(info) // "playing Game" '...' Sets the setGame to what the info Random math picked from the GameInfo Array
-    console.log(`[ OYNUYOR ] Ramazan BOT şu anda ( ${info} ) oynuyor`) //Logs to console what the setGame was set as.
     }
 
 }
