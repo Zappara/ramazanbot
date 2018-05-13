@@ -51,7 +51,7 @@ client.on('message', message => {
         });
     }
 });
-
+/*
 if (message.content.startsWith(prefix + 'yardım')) {
     bot.sendMessage(message, "Özel Mesajlarını Kontrol Et **" + message.sender.name + "**")
     bot.sendMessage(message.sender.id, `${rb}
@@ -85,7 +85,7 @@ ${prefix}math <maths> - evaluates math equations
 ${prefix}uptime - Shows bot uptime
 ${prefix}sys - Gets system information${rb}`)
   }
-
+*/
   if (msg.content === 'acıktım') {
    	if (Math.floor((Math.random() * 15) + 1) === 1) {
    		msg.reply('Az sabret iftara az kaldı!');
