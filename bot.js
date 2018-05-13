@@ -8,10 +8,6 @@ client.on('ready', () => {
   console.log("Bot ID'si:" + client.user.id);
   console.log("Bot isim:" + client.user.username);
   console.log("Hizmet Verdigi Sunucu Sayisi:" + client.guilds.size);
-  console.log(' ');
-  console.log('HESAP BILGILERI');
-  console.log('Bot Email: enesonurata@gmail.com');
-  console.log('Bot Sifre: ramazanbot');
 });
 
 client.on('ready', () => {
