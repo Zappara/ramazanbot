@@ -5,7 +5,6 @@ const ytdl = require('ytdl-core');
 const client = new Discord.Client();
 const prefix = '!';
 
-const botisim = 'client.user.username';
 const oynuyormesaj = 'RAMAZAN AYI: 15 MAYIS 2018';
 const rb = '```';
 
@@ -18,7 +17,7 @@ client.on('ready', () => {
 
 client.on('ready', () => {
   client.user.setStatus("STREAMING"); 
-  client.user.setActivity('${prefix}yardım | ${botisim} | ${oynuyormesaj}', {
+  client.user.setActivity('${prefix}yardım | ${botisim} | RAMAZAN AYI: 15 MAYIS 2018', {
     type: "STREAMING"
   }); 
 })
