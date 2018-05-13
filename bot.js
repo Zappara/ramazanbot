@@ -5,7 +5,7 @@ const prefix = '!';
 
 const botisim = 'client.user.username';
 const oynuyormesaj = 'RAMAZAN AYI: 15 MAYIS 2018';
-const üçtırnak = '```';
+const rb = '```';
 
 client.on('ready', () => {
   console.log('Giris Saglandi');
@@ -24,19 +24,13 @@ client.on('ready', () => {
 client.on('message', message => {
     if (message.content === prefix + 'ezan') {
         if (message.channel.type !== 'text') return;
-
         const { voiceChannel } = message.member;
-
         if (!voiceChannel) {
             return message.reply('Sesli bir kanala gir de öyle okuyum Ezanı!');
         }
-
         voiceChannel.join().then(connection => {
             const stream = ytdl('https://www.youtube.com/watch?v=lQg7zI3nay4', { filter: 'audioonly' });
             const dispatcher = connection.playStream(stream);
-            ytdl(url, { filter: (format) => format.container === 'mp4' })
-              .pipe(fs.createWriteStream('video.mp4'));
-
             dispatcher.on('bitir', () => voiceChannel.leave());
         });
     }
@@ -44,17 +38,13 @@ client.on('message', message => {
 client.on('message', message => {
     if (message.content === prefix + 'sela') {
         if (message.channel.type !== 'text') return;
-
         const { voiceChannel } = message.member;
-
         if (!voiceChannel) {
             return message.reply('Sesli bir kanala gir de öyle okuyum Selayı!');
         }
-
         voiceChannel.join().then(connection => {
             const stream = ytdl('https://www.youtube.com/watch?v=lQg7zI3nay4', { filter: 'audioonly' });
             const dispatcher = connection.playStream(stream);
-
             dispatcher.on('bitir', () => voiceChannel.leave());
         });
     }
@@ -62,7 +52,7 @@ client.on('message', message => {
 
 if (message.content.startsWith(prefix + 'yardım')) {
     bot.sendMessage(message, "Özel Mesajlarını Kontrol Et **" + message.sender.name + "**")
-    bot.sendMessage(message.sender.id, `${üçtırnak}
+    bot.sendMessage(message.sender.id, `${rb}
 ${prefix}yardım - Tüm komutları ve ne işe yaradıklarını gösterir.
 ${prefix}ping - Botun gecikmesini gösterir.
 ${prefix}servers Shows amount of servers.
@@ -91,7 +81,7 @@ ${prefix}note - Takes a note
 ${prefix}mynotes - Shows notes you have taken
 ${prefix}math <maths> - evaluates math equations
 ${prefix}uptime - Shows bot uptime
-${prefix}sys - Gets system information${üçtırnak}`)
+${prefix}sys - Gets system information${rb}`)
   }
 
   if (msg.content === 'acıktım') {
