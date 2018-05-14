@@ -1,9 +1,9 @@
-client.login(process.env.BOT_TOKEN);
-
 const Discord = require("discord.js");
 const ytdl = require('ytdl-core');
 const client = new Discord.Client();
 const prefix = '!';
+
+client.login(process.env.BOT_TOKEN);
 
 client.on('ready', () => {
   console.log('Giris Saglandi');
@@ -47,41 +47,7 @@ client.on('message', message => {
         });
     }
 });
-/*
-if (message.content.startsWith(prefix + 'yardım')) {
-    bot.sendMessage(message, "Özel Mesajlarını Kontrol Et **" + message.sender.name + "**")
-    bot.sendMessage(message.sender.id, `${rb}
-${prefix}yardım - Tüm komutları ve ne işe yaradıklarını gösterir.
-${prefix}ping - Botun gecikmesini gösterir.
-${prefix}servers Shows amount of servers.
-${prefix}play - Plays the song you requested.
-${prefix}voteskip - You may vote to skip a song.
-${prefix}volume <volume> - Change the volume.
-${prefix}queue - Check the list of songs that are queued.
-${prefix}np/nowplaying - Check the current song out.
-${prefix}skip - Skips the playing song.
-${prefix}pause - Pause the current song.
-${prefix}deletewarn <user> - Deletes a warning from a user.
-${prefix}lookupwarn <user> - Lookup warning information on a user.
-${prefix}eval - Owner only.
-${prefix}clearqueue - Clears the list of queues.
-${prefix}say - Admin only.
-${prefix}resume - Resumes paused song.
-${prefix}shutdown - Power off the bot (Owner only).
-${prefix}invite - Creates OAuth URL for bot.
-${prefix}git - Sends link to github repo.
-${prefix}play - Plays a link that you have wanted it to.
-${prefix}userblacklist <add/remove> <user id> - Blacklists a user
-${prefix}warn <user> <reason> - Warns a user for the thing they did wrong.
-${prefix}reminder <time>|<reminder> - Reminds you of something in a certain time
-${prefix}serverblacklist <add/remove> <server id> - Adds or removes servers from blacklist
-${prefix}note - Takes a note
-${prefix}mynotes - Shows notes you have taken
-${prefix}math <maths> - evaluates math equations
-${prefix}uptime - Shows bot uptime
-${prefix}sys - Gets system information${rb}`)
-  }
-*/
+
   if (msg.content === 'acıktım') {
    	if (Math.floor((Math.random() * 15) + 1) === 1) {
    		msg.reply('Az sabret iftara az kaldı!');
