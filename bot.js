@@ -14,7 +14,7 @@ client.on('ready', () => {
 
 client.on('ready', () => {
   client.user.setStatus("STREAMING"); 
-  client.user.setActivity('${prefix}yardım | ${botisim} | RAMAZAN AYI: 15 MAYIS 2018', {
+  client.user.setActivity('!!yardım | Ramazan Bot | Hoşgeldin Ya Şehri Ramazan', {
     type: "STREAMING"
   }); 
 })
