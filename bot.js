@@ -19,12 +19,12 @@ client.on('ready', () => {
   }); 
 })
 
-client.on('message', message => {
-    if (message.content === prefix + 'ezan') {
-        if (message.channel.type !== 'text') return;
-        const { voiceChannel } = message.member;
+client.on('message', msg => {
+    if (msg.content === prefix + 'ezan') {
+        if (msg.channel.type !== 'text') return;
+        const { voiceChannel } = msg.member;
         if (!voiceChannel) {
-            return message.reply('Sesli bir kanala gir de öyle okuyum Ezanı!');
+            return msg.reply('Sesli bir kanala gir de öyle okuyum Ezanı!');
         }
         voiceChannel.join().then(connection => {
             const stream = ytdl('https://www.youtube.com/watch?v=lQg7zI3nay4', { filter: 'audioonly' });
@@ -33,12 +33,12 @@ client.on('message', message => {
         });
     }
 });
-client.on('message', message => {
-    if (message.content === prefix + 'sela') {
-        if (message.channel.type !== 'text') return;
-        const { voiceChannel } = message.member;
+client.on('message', msg => {
+    if (msg.content === prefix + 'sela') {
+        if (msg.channel.type !== 'text') return;
+        const { voiceChannel } = msg.member;
         if (!voiceChannel) {
-            return message.reply('Sesli bir kanala gir de öyle okuyum Selayı!');
+            return msg.reply('Sesli bir kanala gir de öyle okuyum Selayı!');
         }
         voiceChannel.join().then(connection => {
             const stream = ytdl('https://www.youtube.com/watch?v=lQg7zI3nay4', { filter: 'audioonly' });
@@ -208,4 +208,3 @@ client.on('message', message => {
    	msg.reply('sana da güle güle');
   }
 });
-
