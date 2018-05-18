@@ -20,7 +20,7 @@ client.on('ready', () => {
   client.user.setActivity('!!yardım | RamazanBot | Hoş Geldin Ey Şehri Ramazan |www.enesonurata.cf', {
     type: "STREAMING"
   }); 
-})
+});
 
 //Ezan Okuma
 client.on('message', message => {
@@ -203,4 +203,3 @@ client.on('message', message => {
   if (msg.content === 'güle güle') {
    	msg.reply('sana da güle güle');
   }
-});
