@@ -3,9 +3,6 @@ const ytdl = require("ytdl-core");
 const client = new Discord.Client();
 var prefix = "+";
 
-const connections = new Map();
-let broadcast;
-
 
 //TOKEN
 client.login(process.env.BOT_TOKEN);
@@ -185,6 +182,13 @@ client.on("message", msg => {
   }
 });
 
+
+
+
+
+
+
+var youtubedl = require('youtube-dl');
 var fs = require('fs');
 var bot = new Discord.Client();
 
