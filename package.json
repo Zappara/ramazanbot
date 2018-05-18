@@ -5,15 +5,12 @@
   "main": "bot.js",
   "scripts": {
     "test": "node bot.js",
-    "start": "node bot.js"
   },
   "author": "Enes Onur Ata#9427",
   "license": "MIT",
   "dependencies": {
     "discord.js": "^11.3.2",
-    "ytdl-core" :  "github:fent/node-ytdl-core#master",
-    "node-opus" : "^0.2.1",
-    "youtube-node" : "^4.2.0"
+    "ytdl-core" :  "github:fent/node-ytdl-core#master"
   },
   "devDependencies": {}
 }
