@@ -17,31 +17,21 @@ client.on('ready', () => {
   }); 
 })
 
-client.on('message', msg => {
-    if (msg.content === prefix + 'ezan') {
-        if (msg.channel.type !== 'text') return;
-        const { voiceChannel } = msg.member;
-        if (!voiceChannel) {
-            return msg.reply('Sesli bir kanala gir de öyle okuyum Ezanı!');
+client.on('message', message => {
+    if (message.content === prefix + 'ezan') { // eğer prefix ve çay yan yana kullanılırsa burda alttaki şeyleri yap
+        if (message.channel.type !== 'text') return;
+
+        const { voiceChannel } = message.member;
+
+        if (!voiceChannel) { // eğer kullanıcı sesli kanalda değilse resti çek
+            return message.reply('Lütfen #ezan sesli kanalına gir de öyle okuyum Ezanı');
         }
-        voiceChannel.join().then(connection => {
-            const stream = ytdl('https://www.youtube.com/watch?v=lQg7zI3nay4', { filter: 'audioonly' });
+
+        voiceChannel.join().then(connection => { // ve çal bakalım
+            const stream = ytdl('https://www.youtube.com/watch?v=a9FsCJqXE0g', { filter: 'audioonly' });
             const dispatcher = connection.playStream(stream);
-            dispatcher.on('bitir', () => voiceChannel.leave());
-        });
-    }
-});
-client.on('message', msg => {
-    if (msg.content === prefix + 'sela') {
-        if (msg.channel.type !== 'text') return;
-        const { voiceChannel } = msg.member;
-        if (!voiceChannel) {
-            return msg.reply('Sesli bir kanala gir de öyle okuyum Selayı!');
-        }
-        voiceChannel.join().then(connection => {
-            const stream = ytdl('https://www.youtube.com/watch?v=lQg7zI3nay4', { filter: 'audioonly' });
-            const dispatcher = connection.playStream(stream);
-            dispatcher.on('bitir', () => voiceChannel.leave());
+
+            dispatcher.on('end', () => voiceChannel.leave());
         });
     }
 });
