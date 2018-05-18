@@ -3,20 +3,26 @@ const ytdl = require('ytdl-core');
 const client = new Discord.Client();
 var prefix = '!!';
 
+//TOKEN
+client.login(process.env.BOT_TOKEN);
+
+//BOT AÇILINCA
 client.on('ready', () => {
   console.log('Giris Saglandi');
   console.log("Prefix: " + prefix);
   console.log("Bot ID'si:" + client.user.id);
-  console.log("Bot isim:" + client.user.username);
+  console.log('Bot Isim: ${client.user.username}');
 });
 
+//Oynuyor
 client.on('ready', () => {
   client.user.setStatus("STREAMING"); 
-  client.user.setActivity('!!yardım | Ramazan Bot | Hoşgeldin Ya Şehri Ramazan', {
+  client.user.setActivity('!!yardım | RamazanBot | Hoş Geldin Ey Şehri Ramazan |www.enesonurata.cf', {
     type: "STREAMING"
   }); 
 })
 
+//Ezan Okuma
 client.on('message', message => {
     if (message.content === prefix + 'ezan') { // eğer prefix ve çay yan yana kullanılırsa burda alttaki şeyleri yap
         if (message.channel.type !== 'text') return;
@@ -36,6 +42,7 @@ client.on('message', message => {
     }
 });
 
+//Acıktım diyince olacaklar
   if (msg.content === 'acıktım') {
    	if (Math.floor((Math.random() * 15) + 1) === 1) {
    		msg.reply('Az sabret iftara az kaldı!');
@@ -70,6 +77,7 @@ client.on('message', message => {
    	}
   }
 
+//Susadım diyince olacaklar
   if (msg.content === 'susadım') {
    	if (Math.floor((Math.random() * 15) + 1) === 1) {
    		msg.reply('Az sabret iftara az kaldı!');
@@ -103,7 +111,7 @@ client.on('message', message => {
    		msg.reply('Başka bir şey düşünmeye çalış!');
    	}
   }
-
+//Sıkılmak - of ah oh püf mesajları
   if (msg.content === 'of') {
    	msg.reply('Oflama geçer bugünler!');
   }
@@ -119,7 +127,7 @@ client.on('message', message => {
   if (msg.content === 'püf') {
    	msg.reply('Püf deme of de!');
   }
-
+//İftar ile alakalı mesajlar
   if (msg.content === 'iftara ne kadar var') {
    	msg.reply('Şimdi öğren -> https://iftaranekadarkaldi.com/');
   }
@@ -159,7 +167,7 @@ client.on('message', message => {
    		msg.reply('Sabret biraz! ;)');
    	}
   }
-
+//Çeşitli Hal hatır sorma selam verme mesajları
   if (msg.content === 'selamın aleyküm') {
    	msg.reply('ve aleyküm selam');
   }
@@ -196,5 +204,3 @@ client.on('message', message => {
    	msg.reply('sana da güle güle');
   }
 });
-
-client.login(process.env.BOT_TOKEN);
