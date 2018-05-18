@@ -201,16 +201,8 @@ client.on("message", msg => {
     msg.reply("sana da iyi geceler");
   }
 
-  if (msg.content === "sa") {
-    msg.reply("as");
-  }
-
   if (msg.content === "iyi akşamlar") {
     msg.reply("sana da iyi akşamlar");
-  }
-
-  if (msg.content === "selamın aleyküm") {
-    msg.reply("ve aleyküm selam");
   }
 
   if (msg.content === "güle güle") {
