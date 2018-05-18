@@ -9,10 +9,14 @@ client.login(process.env.BOT_TOKEN);
 
 //BOT AÇILINCA
 client.on("ready", () => {
-  console.log("Giris Saglandi");
+  console.log('------------] Ramazan Bot [-------------');
+	console.log(`${client.guilds.size} tane sunucuya hizmet veriyor`);
+	console.log(`${client.users.size} kullanıcıya hizmet veriyor`);
+	console.log(`${client.channels.size} kanala hizmet veriyor`);
   console.log("Prefix: " + prefix);
   console.log("Bot ID'si:" + client.user.id);
   console.log("Bot Isim:" + client.user.username);
+  console.log('------------] Ramazan Bot [-------------');
 });
 
 //Oynuyor
