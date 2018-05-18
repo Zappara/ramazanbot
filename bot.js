@@ -1,9 +1,7 @@
 const Discord = require("discord.js");
 const ytdl = require('ytdl-core');
 const client = new Discord.Client();
-const prefix = '!!';
-
-client.login(process.env.BOT_TOKEN);
+var prefix = '!!';
 
 client.on('ready', () => {
   console.log('Giris Saglandi');
@@ -208,3 +206,5 @@ client.on('message', msg => {
    	msg.reply('sana da güle güle');
   }
 });
+
+client.login(process.env.BOT_TOKEN);
