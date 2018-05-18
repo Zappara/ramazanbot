@@ -4,7 +4,7 @@
   "description": "Ramazan BOT - Discord Bot",
   "main": "bot.js",
   "scripts": {
-    "test": "node bot.js"
+    "test": "node bot.js",
     "start": "node bot.js"
   },
   "author": "Enes Onur Ata#9427",
