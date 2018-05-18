@@ -43,6 +43,7 @@ client.on('message', message => {
 });
 
 //Acıktım diyince olacaklar
+client.on('message', msg => {
   if (msg.content === 'acıktım') {
    	if (Math.floor((Math.random() * 15) + 1) === 1) {
    		msg.reply('Az sabret iftara az kaldı!');
@@ -78,6 +79,7 @@ client.on('message', message => {
   }
 
 //Susadım diyince olacaklar
+client.on('message', msg => {
   if (msg.content === 'susadım') {
    	if (Math.floor((Math.random() * 15) + 1) === 1) {
    		msg.reply('Az sabret iftara az kaldı!');
