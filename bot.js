@@ -16,7 +16,6 @@ client.on("ready", () => {
   console.log("Prefix: " + prefix);
   console.log("Bot ID'si:" + client.user.id);
   console.log("Bot Isim:" + client.user.username);
-  console.log("Gecikme: " + client.ping);
   console.log('[------------] Ramazan Bot [-------------]');
 });
 
@@ -189,7 +188,7 @@ client.on("message", msg => {
 
 //Zappara
 client.on("message", msg => {
-  if (msg.content === prefix + "zappara") {
+  if (msg.content === prefix + 'zappara') {
 const embed = new Discord.RichEmbed()
   .setTitle("This is your title, it can hold 256 characters")
   .setAuthor("Author Name", "https://i.imgur.com/lm8s41J.png")
