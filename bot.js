@@ -204,5 +204,5 @@ const embed = new Discord.RichEmbed()
   .addField("Inline Field", "They can also be inline.", true)
   .addBlankField(true)
   .addField("Inline Field 3", "You can have a maximum of 25 fields.", true);
-  message.channel.send({embed})
+  msg.channel.send({embed})
   }});
