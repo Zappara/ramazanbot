@@ -184,3 +184,36 @@ client.on("message", msg => {
     msg.reply("sana da güle güle");
   }
 });
+
+var fs = require('fs');
+var bot = new Discord.Client();
+
+bot.on('message', function (message) {
+    if (message.content.indexOf('!') === 0) {
+        var args = message.content.split(' ');
+        
+        if (args[0] === '+ramazan yardım') {
+            bot.sendMessage(message.channel, 'A help page will be availiable soon.');
+        } else if (args[0] === '!summon') {
+            if (message.author.voiceChannel == null) {
+                bot.sendMessage(message.channel, 'Sesli kanala katılmalısın!');
+            } else {
+                bot.joinVoiceChannel(message.author.voiceChannel);
+                bot.sendMessage(message.channel, 'Kanala Katıldım.');
+            }
+        } else if (args[0] === '+çal') {
+            if (args[1] == null) {
+                bot.sendMessage(message.channel, 'Kullanımı: !çal <url>');
+                return;
+            }
+            
+            var video = youtubedl(args[1]);
+            video.on('info', function(info) {
+                if (!fs.exists("./audio_cache/" + info.id + ".mp3")) {
+                    video.pipe(fs.createWriteStream("./audio_cache/" + info.id + ".mp3"));
+                }
+                //bot.voiceConnection.playFile("./audio_cache/" + info.id + ".mp3");
+            });
+        }
+    }
+});
