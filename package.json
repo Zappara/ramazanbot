@@ -1,7 +1,7 @@
 {
-  "name": "ramazanbot",
+  "name": "teabot",
   "version": "1.0.0",
-  "description": "Ramazan BOT - Discord Bot",
+  "description": "Tea BOT - Discord Bot",
   "main": "bot.js",
   "scripts": {
     "test": "node bot.js"
